@@ -1,0 +1,7 @@
+/ci/cache/
+/ci/infection/
+/ci/phpdoc/
+/ci/phpunit/
+/ci/psalm/
+/tools/
+/vendor/

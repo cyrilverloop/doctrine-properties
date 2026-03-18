@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/13.0/phpunit.xsd"
+    bootstrap="../vendor/autoload.php"
+    cacheDirectory="./cache/.phpunit.cache"
+    colors="true"
+    executionOrder="depends,defects"
+    requireCoverageMetadata="true"
+    beStrictAboutChangesToGlobalState="true"
+    beStrictAboutCoverageMetadata="true"
+    beStrictAboutOutputDuringTests="true"
+    beStrictAboutTestsThatDoNotTestAnything="true"
+    displayDetailsOnPhpunitDeprecations="true"
+    failOnDeprecation="true"
+    failOnEmptyTestSuite="true"
+    failOnIncomplete="true"
+    failOnNotice="true"
+    failOnPhpunitDeprecation="true"
+    failOnRisky="true"
+    failOnSkipped="true"
+    failOnWarning="true"
+    testdox="true"
+>
+    <coverage>
+        <report>
+            <html outputDirectory="phpunit/html" />
+        </report>
+    </coverage>
+
+    <logging>
+        <testdoxHtml outputFile="phpunit/testdox.html" />
+    </logging>
+
+    <source
+        ignoreIndirectDeprecations="true"
+        restrictNotices="true"
+        restrictWarnings="true"
+    >
+        <include>
+            <directory suffix=".php">../src</directory>
+        </include>
+    </source>
+
+    <testsuites>
+        <testsuite name="default">
+            <directory>../tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

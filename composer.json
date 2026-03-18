@@ -1,0 +1,31 @@
+{
+    "name": "cyril-verloop/doctrine-properties",
+    "description": "Some default doctrine entity/fields requiring PHP >=8.5 and Doctrine ORM 3.6.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "CyrilVerloop\\DoctrineProperties\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CyrilVerloop\\DoctrineProperties\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=8.5",
+        "doctrine/orm": "^3.6"
+    },
+    "authors": [
+        {
+            "name": "Cyril VERLOOP",
+            "email": "cyril.verloop@webqard.fr"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true
+        }
+    }
+}
