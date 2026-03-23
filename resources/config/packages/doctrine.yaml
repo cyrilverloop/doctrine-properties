@@ -1,0 +1,16 @@
+doctrine:
+    orm:
+        mappings:
+            # For attribute :
+            CVDP:
+                alias: CVDP
+                dir: '%kernel.project_dir%/vendor/cyril-verloop/doctrine-properties/src'
+                prefix: 'CyrilVerloop\DoctrineProperties'
+                type: attribute
+
+            # For XML :
+            CVDP:
+                alias: CVDP
+                dir: '%kernel.project_dir%/vendor/cyril-verloop/doctrine-properties/config/doctrine'
+                prefix: CyrilVerloop\DoctrineProperties
+                type: xml
