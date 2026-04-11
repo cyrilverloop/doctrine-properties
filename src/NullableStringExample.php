@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Example class to add nullable string fields to an entity.
+ *
+ * @psalm-api
  */
 class NullableStringExample
 {

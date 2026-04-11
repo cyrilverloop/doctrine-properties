@@ -8,6 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Example class to add bool fields to an entity.
+ *
+ * @psalm-api
  */
 class BoolExample
 {

@@ -9,6 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Example class to add int fields to an entity.
+ *
+ * @psalm-api
  */
 class IntExample
 {
