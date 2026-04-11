@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace CyrilVerloop\DoctrineProperties\Int;
+namespace CyrilVerloop\DoctrineProperties;
 
 /**
  * An interface for integer id.
@@ -13,5 +13,5 @@ interface IntIdInterface
 {
     // Properties :
 
-    public ?int $id { get; }
+    public ?int $id { set; }
 }

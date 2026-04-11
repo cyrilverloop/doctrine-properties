@@ -7,30 +7,14 @@ Some default doctrine entity/fields requiring PHP >=8.5 and Doctrine ORM >=3.6.
 This includes :
 
 - `AbstractIntId` : a mapped superclass with an `$id` as an integer identifier/primary key;
-- `IntId` : a trait that adds an `$id` as an integer identifier/primary key;
 - `IntIdInterface` : an interface for integer id;
-- `Priority` : a trait that adds a `$priority` integer field;
 
-- `Active` : a trait that adds an `$active` boolean field;
-- `Available` : a trait that adds an `$available` boolean field;
-
-- `Description` : a trait that adds a `$description` text field;
-- `NullableDescription` : a trait that adds a nullable `$description` text field;
-- `Email` : a trait that adds a `$email` text field;
-- `NullableEmail` : a trait that adds a nullable `$email` text field;
-- `Firstname` : a trait that adds a `$firstname` text field;
-- `NullableFirstname` : a trait that adds a nullable `$firstname` text field;
-- `Lastname` : a trait that adds a `$lastname` text field;
-- `NullableLastname` : a trait that adds a nullable `$lastname` text field;
-- `Name` : a trait that adds a `$name` text field;
-- `NullableName` : a trait that adds a nullable `$name` text field;
-- `Slug` : a trait that adds a `$slug` text field;
-- `NullableSlug` : a trait that adds a nullable `$slug` text field;
-- `Surname` : a trait that adds a `$surname` text field;
-- `NullableSurname` : a trait that adds a nullable `$surname` text field;
+- `BoolExample` : a class with `$active`, `$available` boolean properties;
+- `IntExample` : a class with `$priority` integer property;
+- `NullableStringExample` : a class with `$description`, `$email`, `$firstname`, `$lastname`, `$name`, `$slug` and `$surname` nullable string properties;
+- `StringExample` : a class that adds `$description`, `$email`, `$firstname`, `$lastname`,  `$name`,  `$slug` and `$surname` string properties;
 
 [![License](https://img.shields.io/github/license/cyrilverloop/doctrine-properties)](https://github.com/cyrilverloop/doctrine-properties/blob/trunk/LICENSE)
-[![Type coverage](https://shepherd.dev/github/cyrilverloop/doctrine-properties/coverage.svg)](https://shepherd.dev/github/cyrilverloop/doctrine-properties)
 [![Minimum PHP version](https://img.shields.io/badge/php-%3E%3D8.5-%23777BB4?logo=php&style=flat)](https://www.php.net/)
 
 
@@ -51,7 +35,7 @@ user@host ~$ cd [PATH_WHERE_TO_PUT_THE_PROJECT] # E.g. ~/projects/
 user@host projects$ git clone https://github.com/cyrilverloop/doctrine-properties.git
 user@host projects$ cd doctrine-properties
 user@host doctrine-properties$ composer install -o
-user@host doctrine-properties$ phive install --trust-gpg-keys 4AA394086372C20A,99BF4D9A33D65E1E,31C7E470E2138192,8AC0BAA79732DD42,C5095986493B4AA0
+user@host doctrine-properties$ phive install
 ```
 
 
@@ -92,7 +76,7 @@ You can also look at the `resources/config/packages/doctrine.yaml` file.
 The XML file is located in the `config/doctrine/` directory.
 You just have to copy or reference it depending on your needs.
 
-#### Traits
+#### Properties
 
 You need to copy the require configuration in your XML file.
 
@@ -116,8 +100,16 @@ For example :
 
 <field name="description" column="description" type="text" />
 <field name="description" column="description" type="text" nullable="true" />
+<field name="email" column="email" type="string" />
+<field name="email" column="email" type="string" nullable="true" />
+<field name="firstname" column="firstname" type="string" />
+<field name="firstname" column="firstname" type="string" nullable="true" />
+<field name="lastname" column="lastname" type="string" />
+<field name="lastname" column="lastname" type="string" nullable="true" />
 <field name="name" column="name" type="string" />
 <field name="name" column="name" type="string" nullable="true" />
+<field name="surname" column="surname" type="string" />
+<field name="surname" column="surname" type="string" nullable="true" />
 <field name="slug" column="slug" type="string" />
 <field name="slug" column="slug" type="string" nullable="true" />
 ```
@@ -127,59 +119,30 @@ You can also look at the `resources/mappings/Example.orm.xml` file.
 
 ## Usage
 
-### AbstractIntId / IntId / IntIdInterface
+### AbstractIntId / IntIdInterface
 
 If your entities need an integer as an identifier/primary key :
-- they can extend the mapped super class `CyrilVerloop\DoctrineProperties\Int\AbstractIntId`
+- they can extend the mapped super class `CyrilVerloop\DoctrineProperties\AbstractIntId`
 
 ```php
-<?php
-
-declare(strict_types=1);
-
-namespace MyNamespace;
-
-use CyrilVerloop\DoctrineProperties\Int\AbstractIntId;
+use CyrilVerloop\DoctrineProperties\AbstractIntId;
 
 class Product extends AbstractIntId
 {
-    // Your code here.
-}
-```
-
-- use the `CyrilVerloop\DoctrineProperties\Int\IntId` trait
-
-```php
-<?php
-
-declare(strict_types=1);
-
-namespace MyNamespace;
-
-use CyrilVerloop\DoctrineProperties\Int\IntId;
-
-class Product
-{
-    use IntId;
-
     public function __construct()
     {
-        // Do not forget to initiate the id :
-        $this->id = null;
+        // You can call the parent constructor
+        // to initiate the id to null
+        // or initiate it yourself :
+        parent::__construct();
     }
 }
 ```
 
-- implement the `CyrilVerloop\DoctrineProperties\Int\IntIdInterface` interface
+- implement the `CyrilVerloop\DoctrineProperties\IntIdInterface` interface
 
 ```php
-<?php
-
-declare(strict_types=1);
-
-namespace MyNamespace;
-
-use CyrilVerloop\DoctrineProperties\Int\IntIdInterface;
+use CyrilVerloop\DoctrineProperties\IntIdInterface;
 
 class Product implements IntIdInterface
 {
@@ -187,26 +150,13 @@ class Product implements IntIdInterface
 }
 ```
 
-### Active / Available / Description / Priority / Slug ...
+### Properties
 
-If your entities need some other fields, they can use a trait.
+Example properties are in `*Example.php` files.
 
-```php
-<?php
+### Unit tests
 
-declare(strict_types=1);
-
-namespace MyNamespace;
-
-use CyrilVerloop\DoctrineProperties\Bool\Available;
-
-class Product
-{
-    use Available;
-
-    // Your code here.
-}
-```
+Example unit tests for PHPUnit are in `./tests/`.
 
 
 ## Continuous integration
