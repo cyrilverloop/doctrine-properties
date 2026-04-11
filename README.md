@@ -35,7 +35,7 @@ user@host ~$ cd [PATH_WHERE_TO_PUT_THE_PROJECT] # E.g. ~/projects/
 user@host projects$ git clone https://github.com/cyrilverloop/doctrine-properties.git
 user@host projects$ cd doctrine-properties
 user@host doctrine-properties$ composer install -o
-user@host doctrine-properties$ phive install
+user@host doctrine-properties$ phive install --trust-gpg-keys 4AA394086372C20A,99BF4D9A33D65E1E,6DA3ACC4991FFAE5,C5095986493B4AA0
 ```
 
 
