@@ -21,6 +21,7 @@ class IntExample
      * @param int $priority the priority.
      */
     public function __construct(
+        /** @infection-ignore-all */
         #[ORM\Column(
             type: Types::SMALLINT,
             options: [

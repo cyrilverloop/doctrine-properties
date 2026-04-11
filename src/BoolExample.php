@@ -21,6 +21,7 @@ class BoolExample
      * @param bool $available true if available, else false.
      */
     public function __construct(
+        /** @infection-ignore-all */
         #[ORM\Column(
             options: [
                 "default" => true
@@ -28,6 +29,7 @@ class BoolExample
         )]
         public bool $active = true,
 
+        /** @infection-ignore-all */
         #[ORM\Column(
             options: [
                 "default" => true

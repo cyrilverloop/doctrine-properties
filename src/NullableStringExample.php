@@ -27,24 +27,31 @@ class NullableStringExample
      * @param string|null $surname the surname.
      */
     public function __construct(
+        /** @infection-ignore-all */
         #[ORM\Column(type: Types::TEXT, nullable: true)]
         public ?string $description = null,
 
+        /** @infection-ignore-all */
         #[ORM\Column(nullable: true)]
         public ?string $email = null,
 
+        /** @infection-ignore-all */
         #[ORM\Column(nullable: true)]
         public ?string $firstname = null,
 
+        /** @infection-ignore-all */
         #[ORM\Column(nullable: true)]
         public ?string $lastname = null,
 
+        /** @infection-ignore-all */
         #[ORM\Column(nullable: true)]
         public ?string $name = null,
 
+        /** @infection-ignore-all */
         #[ORM\Column(nullable: true)]
         public ?string $slug = null,
 
+        /** @infection-ignore-all */
         #[ORM\Column(nullable: true)]
         public ?string $surname = null
     ) {
