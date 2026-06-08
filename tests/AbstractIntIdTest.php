@@ -38,7 +38,7 @@ final class AbstractIntIdTest extends TestCase
     public function testThrowsADomainExceptionIfIdIsSetToZero(): void
     {
         $this->expectException(\DomainException::class);
-        $this->expectExceptionMessage('The identifier must be null or an integer greater than 0.');
+        $this->expectExceptionMessageIs('The identifier must be null or an integer greater than 0.');
 
         $abstractIntId = new class extends AbstractIntId {};
         $abstractIntId->id = 0;
@@ -52,7 +52,7 @@ final class AbstractIntIdTest extends TestCase
     public function testThrowsADomainExceptionIfIdIsSetToANegativeInteger(): void
     {
         $this->expectException(\DomainException::class);
-        $this->expectExceptionMessage('The identifier must be null or an integer greater than 0.');
+        $this->expectExceptionMessageIs('The identifier must be null or an integer greater than 0.');
 
         $abstractIntId = new class extends AbstractIntId {};
         $abstractIntId->id = -1;
